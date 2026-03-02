@@ -1,5 +1,6 @@
-﻿using BedrijvenDatalaag;
-using BedrijvenDomein;
+﻿using BedrijvenBL.Beheerders;
+using BedrijvenUtil;
+using Microsoft.Extensions.Configuration;
 
 namespace ConsoleAppBedrijven
 {
@@ -8,25 +9,29 @@ namespace ConsoleAppBedrijven
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, World!");
-            string pad = @"c:\tmp\bedrijvenbelgie_18092025.txt";
-            BedrijvenBestandsLezer lezer=new BedrijvenBestandsLezer();
-            BedrijfBeheerder bedrijfBeheerder = new BedrijfBeheerder(lezer.LeesBedrijvenBestand(pad));
-            var res = bedrijfBeheerder.GeefPersoneelBedrijf("VLM Airlines");
-            var res2 = bedrijfBeheerder.GeefPersoneelWoonplaats("Gent");
-            //try
-            //{
-            //    Adres a = new Adres("Gent", "Nonnemeers", 900, "14F");
-            //    Console.WriteLine(a);
-            //}
-            //catch (BedrijvenDomeinException ex)
-            //{
-            //    Console.WriteLine(ex.Message);
-            //}
-            //List<Personeel> lp = new List<Personeel>();
-            //lp.Add(new Personeel());
-            //Bedrijf b=new Bedrijf(lp);
-            //b.VoegPersoneelToe(new Personeel());
-            //b.Personeel().RemoveAt(0);
+
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+            var config= builder.Build();
+            string fileType = config.GetSection("AppSettings")["FileType"];
+            string sourceFile= config.GetSection("AppSettings")["SourceFile"];
+            string logFile= config.GetSection("AppSettings")["LogFile"];
+            string connectionString = config.GetConnectionString("ADOSQLConnection");
+            string repoType = config.GetSection("AppSettings")["RepoType"];
+
+            BedrijvenImportBeheerder bedrijvenImportBeheerder = new BedrijvenImportBeheerder(
+                FileProcessorFactory.GeefFileProcessor(fileType),
+                RepositoryFactory.GeefRepository(repoType,connectionString));
+
+            BedrijfBeheerder bedrijfBeheerder=new BedrijfBeheerder(
+                RepositoryFactory.GeefRepository(repoType,connectionString));
+            //var bedrijf=bedrijfBeheerder.GeefBedrijf("Bekaert");
+            var personeel = bedrijfBeheerder.GeefPersoneelWoonplaats("Gent");
+
+            //var bedrijven=bedrijvenImportBeheerder.LeesBedrijven(sourceFile,logFile);
+            //bedrijvenImportBeheerder.ImportBedrijven(bedrijven);
+            
         }
     }
 }

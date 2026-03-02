@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BedrijvenDomein
+namespace BedrijvenBL.Exceptions
 {
     public class BedrijvenDomeinException : Exception
     {

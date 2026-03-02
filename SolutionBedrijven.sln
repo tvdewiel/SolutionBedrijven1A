@@ -1,15 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36221.1 d17.14
+VisualStudioVersion = 17.14.36221.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BedrijvenDomein", "BedrijvenDomein\BedrijvenDomein.csproj", "{42827E5C-90E0-4CFE-B441-960DD193F8BC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BedrijvenBL", "BedrijvenDomein\BedrijvenBL.csproj", "{42827E5C-90E0-4CFE-B441-960DD193F8BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppBedrijven", "ConsoleAppBedrijven\ConsoleAppBedrijven.csproj", "{795F993B-AD32-4FD3-8BE9-D2374F84AD98}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BedrijvenUI", "ConsoleAppBedrijven\BedrijvenUI.csproj", "{795F993B-AD32-4FD3-8BE9-D2374F84AD98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BedrijvenDatalaag", "BedrijvenDatalaag\BedrijvenDatalaag.csproj", "{92211AA8-FE72-48A5-BC58-676FB834D8E0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BedrijvenDLFile", "BedrijvenDatalaag\BedrijvenDLFile.csproj", "{92211AA8-FE72-48A5-BC58-676FB834D8E0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppTestDL", "ConsoleAppTestDL\ConsoleAppTestDL.csproj", "{18DC6AED-A442-4B47-8F8B-843FE0C7D89B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BedrijvenDLSQL", "BedrijvenDLSQL\BedrijvenDLSQL.csproj", "{CBA3AF2A-4D8D-40AB-B762-3CCA2B2D7D68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BedrijvenUtil", "BedrijvenUtil\BedrijvenUtil.csproj", "{6DF8D22E-9C95-4A56-9935-34D8065FC3BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BedrijvenBeheerAdminUI", "BedrijvenBeheerAdminUI\BedrijvenBeheerAdminUI.csproj", "{C23579C1-E081-48EC-B89D-EAAE152BEA81}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +39,18 @@ Global
 		{18DC6AED-A442-4B47-8F8B-843FE0C7D89B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18DC6AED-A442-4B47-8F8B-843FE0C7D89B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18DC6AED-A442-4B47-8F8B-843FE0C7D89B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBA3AF2A-4D8D-40AB-B762-3CCA2B2D7D68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBA3AF2A-4D8D-40AB-B762-3CCA2B2D7D68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBA3AF2A-4D8D-40AB-B762-3CCA2B2D7D68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBA3AF2A-4D8D-40AB-B762-3CCA2B2D7D68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DF8D22E-9C95-4A56-9935-34D8065FC3BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DF8D22E-9C95-4A56-9935-34D8065FC3BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DF8D22E-9C95-4A56-9935-34D8065FC3BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DF8D22E-9C95-4A56-9935-34D8065FC3BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C23579C1-E081-48EC-B89D-EAAE152BEA81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C23579C1-E081-48EC-B89D-EAAE152BEA81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C23579C1-E081-48EC-B89D-EAAE152BEA81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C23579C1-E081-48EC-B89D-EAAE152BEA81}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

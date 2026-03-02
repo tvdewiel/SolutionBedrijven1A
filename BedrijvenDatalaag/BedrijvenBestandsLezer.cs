@@ -1,8 +1,11 @@
-﻿using BedrijvenDomein;
+﻿
+using BedrijvenBL.Domein;
+using BedrijvenBL.Exceptions;
+using BedrijvenBL.Interfaces;
 
 namespace BedrijvenDatalaag
 {
-    public class BedrijvenBestandsLezer
+    public class BedrijvenBestandsLezer : IBedrijvenFileProcessor
     {
         public List<Bedrijf> LeesBedrijvenBestand(string fileName,string logFileName)
         {
@@ -41,5 +44,6 @@ namespace BedrijvenDatalaag
             }
             return bedrijven.Values.ToList();
         }
+
     }
 }
