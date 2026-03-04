@@ -169,5 +169,27 @@ namespace BedrijvenDLSQL
                 catch(Exception ex) { transaction.Rollback(); throw ex; }
             }
         }
+
+        public void VoegPersoneelToe(int bedrijfsId, Personeel personeel)
+        {
+            string sql = "INSERT INTO personeel(voornaam,familienaam,email,woonplaats,straat,huisnummer,postcode,geboortedatum,bedrijfid) output INSERTED.ID VALUES(@voornaam,@familienaam,@email,@woonplaats,@straat,@huisnummer,@postcode,@geboortedatum,@bedrijfid)";
+            using(SqlConnection conn=new SqlConnection(connectionString))
+            using(SqlCommand cmd=conn.CreateCommand())
+            {
+                conn.Open();
+                cmd.CommandText = sql;
+                cmd.Parameters.AddWithValue("@voornaam", personeel.Voornaam);
+                cmd.Parameters.AddWithValue("@familienaam", personeel.Familienaam);
+                cmd.Parameters.AddWithValue("@email", personeel.Email);
+                cmd.Parameters.AddWithValue("@woonplaats", personeel.Adres.Woonplaats);
+                cmd.Parameters.AddWithValue("@straat", personeel.Adres.Straatnaam);
+                cmd.Parameters.AddWithValue("@postcode", personeel.Adres.Postcode);
+                cmd.Parameters.AddWithValue("@huisnummer", personeel.Adres.Huisnummer);
+                cmd.Parameters.AddWithValue("@geboortedatum", personeel.Geboortedatum);
+                cmd.Parameters.AddWithValue("@bedrijfid", bedrijfsId);
+                int personeelId=(int)cmd.ExecuteScalar();
+                personeel.Id = personeelId;
+            }
+        }
     }
 }

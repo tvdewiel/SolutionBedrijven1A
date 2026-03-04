@@ -11,7 +11,15 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <DataGrid Grid.Row="0" Margin="5" Name="DataGridBedrijven"/>
-        <DataGrid Grid.Row="1" Margin="5" Name="DataGridPersoneel"/>
+        <DataGrid Grid.Row="0" Margin="5" Name="DataGridBedrijven" SelectionChanged="DataGridBedrijven_SelectionChanged"/>
+        <DataGrid Grid.Row="1" Margin="5" Name="DataGridPersoneel">
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Nieuw" Click="MenuItemNieuw_Click"></MenuItem>
+                    <MenuItem Header="Update"/>
+                    <MenuItem Header="Verwijder"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+        </DataGrid>
     </Grid>
 </Window>

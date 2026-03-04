@@ -1,4 +1,6 @@
 ﻿using BedrijvenBL.Beheerders;
+using BedrijvenBL.Domein;
+using BedrijvenBL.DTOs;
 using BedrijvenUtil;
 using Microsoft.Extensions.Configuration;
 using System.IO;
@@ -38,6 +40,17 @@ namespace BedrijvenBeheerAdminUI
             var config = builder.Build();
             connectionString = config.GetConnectionString("ADOSQLConnection");
             repoType = config.GetSection("AppSettings")["RepoType"];
+        }
+
+        private void DataGridBedrijven_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DataGridPersoneel.ItemsSource=bedrijfBeheerder.GeefPersoneelBedrijf(((BedrijfDTO)DataGridBedrijven.SelectedItem).Naam);
+        }
+
+        private void MenuItemNieuw_Click(object sender, RoutedEventArgs e)
+        {
+            NieuwPersoneelWindow w = new NieuwPersoneelWindow(bedrijfBeheerder,(int) ((BedrijfDTO)DataGridBedrijven.SelectedItem).Id);
+            w.ShowDialog();
         }
     }
 }

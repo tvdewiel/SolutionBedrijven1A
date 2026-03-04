@@ -1,0 +1,43 @@
+﻿<Window x:Class="BedrijvenBeheerAdminUI.NieuwPersoneelWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BedrijvenBeheerAdminUI"
+        mc:Ignorable="d"
+        Title="Nieuw Personeelslid" Height="350" Width="400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Voornaam" Margin="5"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Margin="5" Name="TextBoxVoornaam"/>
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Familienaam" Margin="5"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="5" Name="TextBoxFamilienaam"/>
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Geboortedatum" Margin="5"/>
+        <DatePicker Grid.Row="2" Grid.Column="1" Margin="5" Name="DatePickerGeboortedatum"/>
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="Email" Margin="5"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Margin="5" Name="TextBoxEmail"/>
+        <TextBlock Grid.Row="4" Grid.Column="0" Text="Woonplaats" Margin="5"/>
+        <TextBox Grid.Row="4" Grid.Column="1" Margin="5" Name="TextBoxWoonplaats"/>
+        <TextBlock Grid.Row="5" Grid.Column="0" Text="Straat" Margin="5"/>
+        <TextBox Grid.Row="5" Grid.Column="1" Margin="5" Name="TextBoxStraat"/>
+        <TextBlock Grid.Row="6" Grid.Column="0" Text="Postcode" Margin="5"/>
+        <TextBox Grid.Row="6" Grid.Column="1" Margin="5" Name="TextBoxPostcode"/>
+        <TextBlock Grid.Row="7" Grid.Column="0" Text="Huisnummer" Margin="5"/>
+        <TextBox Grid.Row="7" Grid.Column="1" Margin="5" Name="TextBoxHuisnummer"/>
+        <Button Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Content="Opslaan" Click="ButtonOpslaan_Click" Margin="5"/>
+    </Grid>
+</Window>

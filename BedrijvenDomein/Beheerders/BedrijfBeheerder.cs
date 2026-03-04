@@ -18,7 +18,6 @@ namespace BedrijvenBL.Beheerders
         {
             this.repository = repository;
         }
-
         public List<Personeel> GeefPersoneelWoonplaats(string woonplaats)
         {
             return repository.GeefPersoneelWoonplaats(woonplaats);
@@ -27,10 +26,17 @@ namespace BedrijvenBL.Beheerders
         {
             return repository.GeefBedrijf(bedrijfsnaam);
         }
-
         public List<BedrijfDTO> GeefBedrijvenDTOs()
         {
             return repository.GeefBedrijvenDTOs();
+        }
+        public List<Personeel> GeefPersoneelBedrijf(string naam)
+        {
+            return repository.GeefBedrijf(naam).Personeel().ToList();
+        }
+        public void VoegPersoneelToe(int bedrijfsId, Personeel personeel)
+        {
+            repository.VoegPersoneelToe(bedrijfsId, personeel);
         }
     }
 }

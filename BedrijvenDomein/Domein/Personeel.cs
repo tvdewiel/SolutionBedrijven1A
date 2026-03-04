@@ -8,6 +8,15 @@ namespace BedrijvenBL.Domein
 {
     public class Personeel
     {
+        public Personeel(string voornaam, string familienaam, string email, Adres adres, DateTime geboortedatum)
+        {
+            Voornaam = voornaam;
+            Familienaam = familienaam;
+            Email = email;
+            Adres = adres;
+            Geboortedatum = geboortedatum;
+        }
+
         public Personeel(int id, string voornaam, string familienaam, string email, Adres adres, DateTime geboortedatum)
         {
             Id = id;
